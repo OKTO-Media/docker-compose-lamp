@@ -34,7 +34,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <?php include $_SERVER['DOCUMENT_ROOT'] . '/www/includes/header.php'; ?>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/includes/header.php'; ?>
     <section>
         <div class="flexContainer">
             <h1>Welcome to OKTO Media</h1>
