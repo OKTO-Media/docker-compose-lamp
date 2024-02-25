@@ -19,14 +19,11 @@ if [[ $isStatic == "Y" ]]; then
         {print}
     ' docker-compose.yml > docker-compose.tmp && mv docker-compose.tmp docker-compose.yml
 
-    # Remove MySQL references from the webserver section
+    # Remove MySQL references from the webserver section's environment variables
     awk '
-        BEGIN {printEnv=1}
-        /webserver:/,/environment:/{ if(/environment:/) printEnv=0; print; next }
-        /environment:/ {printEnv=1}
-        printEnv {print}
-        /MYSQL_ROOT_PASSWORD|MYSQL_USER|MYSQL_PASSWORD|MYSQL_DATABASE|HOST_MACHINE_MYSQL_PORT/ {next}
+        !/      PMA_HOST: database|      PMA_PORT: 3306|      MYSQL_ROOT_PASSWORD: \${MYSQL_ROOT_PASSWORD}|      MYSQL_USER: \${MYSQL_USER}|      MYSQL_PASSWORD: \${MYSQL_PASSWORD}/
     ' docker-compose.yml > docker-compose.tmp && mv docker-compose.tmp docker-compose.yml
+
 
      # Find an available port starting from 1000 for HOST_MACHINE_SECURE_HOST_PORT
     secure_host_port=1000
