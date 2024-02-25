@@ -54,5 +54,6 @@
             </div>
         </div>
     </section>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php'; ?>
 </body>
 </html>

@@ -1,10 +1,10 @@
 <header>
     <div class="flexContainer">
         <div class="logo">
-            <img src="/assets/OKTO Logo Black.svg" alt="">
+            <a href="/"><img src="/assets/OKTO Logo Black.svg" alt=""></a>
         </div>
         <div class="navLinks">
-            <a href="#">HOME</a>
+            <a href="/">HOME</a>
             <a href="#">ABOUT</a>
             <a href="#">SERVICES</a>
             <a href="#">CONTACT</a>
