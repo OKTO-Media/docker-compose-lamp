@@ -8,27 +8,18 @@ is_port_in_use() {
     netstat -tuln | grep ":$1 " > /dev/null
 }
 
-if [[ $isStatic == "Y" ]]; then
+# Convert input to lowercase for comparison
+isStatic="${isStatic,,}"
+
+if [[ $isStatic == "y" ]]; then
     # If it's a static site, remove MySQL and PMA related lines
     sed -i '/MYSQL_/d' .env
     sed -i '/HOST_MACHINE_PMA_SECURE_PORT/d' .env
 
-    # Remove database and phpmyadmin sections from docker-compose.yml
-    awk '
-        /  database:/,/  phpmyadmin:/ {next}
-        {print}
-    ' docker-compose.yml > docker-compose.tmp && mv docker-compose.tmp docker-compose.yml
+    # Rename static-compose.yml to docker-compose.yml
+    mv static-compose.yml docker-compose.yml
 
-    # Remove MySQL references from the webserver section
-    awk '
-        BEGIN {printEnv=1}
-        /webserver:/,/environment:/{ if(/environment:/) printEnv=0; print; next }
-        /environment:/ {printEnv=1}
-        printEnv {print}
-        /MYSQL_ROOT_PASSWORD|MYSQL_USER|MYSQL_PASSWORD|MYSQL_DATABASE|HOST_MACHINE_MYSQL_PORT/ {next}
-    ' docker-compose.yml > docker-compose.tmp && mv docker-compose.tmp docker-compose.yml
-
-     # Find an available port starting from 1000 for HOST_MACHINE_SECURE_HOST_PORT
+    # Find an available port starting from 1000 for HOST_MACHINE_SECURE_HOST_PORT
     secure_host_port=1000
     while is_port_in_use $secure_host_port; do
         ((secure_host_port++))
