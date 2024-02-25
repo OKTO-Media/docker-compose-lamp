@@ -1,5 +1,7 @@
 #!/bin/bash
 
+
+rm docker-compose.yml
 cp sample.env .env
 read -p "What is the project name? " projectName
 read -p "Is this a static site? (Y/N): " isStatic
@@ -16,8 +18,8 @@ if [[ $isStatic == "y" ]]; then
     sed -i '/MYSQL_/d' .env
     sed -i '/HOST_MACHINE_PMA_SECURE_PORT/d' .env
 
-    # Rename static-compose.yml to docker-compose.yml
-    mv static-compose.yml docker-compose.yml
+    # Copy and Rename static-compose.yml to docker-compose.yml
+    cp static-compose.yml docker-compose.yml
 
     # Find an available port starting from 1000 for HOST_MACHINE_SECURE_HOST_PORT
     secure_host_port=1000
@@ -31,6 +33,9 @@ else
     # Not a static site; proceed with MySQL setup
     read -p "Enter MySQL User: " mysqlUser
     read -p "Enter MySQL Password: " mysqlUserPassword
+
+    # Copy and Rename static-compose.yml to docker-compose.yml
+    cp cms-compose.yml docker-compose.yml
 
     # Automatically generate strong passwords
     mysqlRootPassword=$(openssl rand -base64 12)
