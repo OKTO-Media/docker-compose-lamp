@@ -21,7 +21,7 @@ if [[ $isStatic == "Y" ]]; then
 
     # Remove MySQL references from the webserver section's environment variables
     awk '
-        !/      PMA_HOST: database|      PMA_PORT: 3306|      MYSQL_ROOT_PASSWORD: \${MYSQL_ROOT_PASSWORD}|      MYSQL_USER: \${MYSQL_USER}|      MYSQL_PASSWORD: \${MYSQL_PASSWORD}/
+        !/      PMA_PORT: ${HOST_MACHINE_PMA_PORT}|      MYSQL_DATABASE: ${MYSQL_DATABASE}|      MYSQL_ROOT_PASSWORD: \${MYSQL_ROOT_PASSWORD}|      MYSQL_USER: \${MYSQL_USER}|      MYSQL_PASSWORD: \${MYSQL_PASSWORD}|      HOST_MACHINE_MYSQL_PORT: ${HOST_MACHINE_MYSQL_PORT}/
     ' docker-compose.yml > docker-compose.tmp && mv docker-compose.tmp docker-compose.yml
 
 
