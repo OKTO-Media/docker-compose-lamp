@@ -1,75 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>LAMP STACK</title>
-        <link rel="shortcut icon" href="/assets/images/favicon.svg" type="image/svg+xml">
-        <link rel="stylesheet" href="/assets/css/bulma.min.css">
-    </head>
-    <body>
-        <section class="hero is-medium is-info is-bold">
-            <div class="hero-body">
-                <div class="container has-text-centered">
-                    <h1 class="title">
-                        LAMP STACK
-                    </h1>
-                    <h2 class="subtitle">
-                        Your local development environment
-                    </h2>
-                </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OKTO Media - A New Site</title>
+    <meta name="description" content="">
+    <link rel="canonical" href="">
+    <!-- Facebook Tags -->
+    <meta property="og:title" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    <meta property="og:description" content="">
+    <meta property="og:site_name" content="">
+    <!-- Twitter Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="">
+    <!-- Favicons -->
+    <link rel="icon" sizes="16x16" type="image/png" href="">
+    <link rel="icon" sizes="32x32" type="image/png" href="">
+    <link rel="icon" sizes="46x46" type="image/png" href="">
+    <link rel="icon" sizes="96x96" type="image/png" href="">
+    <link rel="icon" sizes="180x180" type="image/png" href="">
+    <link rel="icon" sizes="192x192" type="image/png" href="">
+    <!-- Stylesheets and Scripts -->
+    <link rel="stylesheet" href="globalStyle.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/www/includes/header.php'; ?>
+    <section>
+        <div class="flexContainer">
+            <h1>Welcome to OKTO Media</h1>
+        </div>
+        <div class="flexContainer">
+            <div class="flexColumn">
+                <h2>Column 1</h2>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, ad. Minima impedit praesentium hic facere nihil ducimus maxime eaque quos alias sequi. Repudiandae quos saepe quidem laborum! Similique, dolor ea praesentium natus hic voluptate illum quaerat officia exercitationem alias, animi, cumque quas possimus eum rem quos! Recusandae vel temporibus deleniti.</p>
             </div>
-        </section>
-        <section class="section">
-            <div class="container">
-                <div class="columns">
-                    <div class="column">
-                        <h3 class="title is-3 has-text-centered">Environment</h3>
-                        <hr>
-                        <div class="content">
-                            <ul>
-                                <li><?= apache_get_version(); ?></li>
-                                <li>PHP <?= phpversion(); ?></li>
-                                <li>
-                                    <?php
-                                    $link = mysqli_connect("database", "root", $_ENV['MYSQL_ROOT_PASSWORD'], null);
-
-/* check connection */
-                                    if (mysqli_connect_errno()) {
-                                        printf("MySQL connecttion failed: %s", mysqli_connect_error());
-                                    } else {
-                                        /* print server version */
-                                        printf("MySQL Server %s", mysqli_get_server_info($link));
-                                    }
-                                    /* close connection */
-                                    mysqli_close($link);
-                                    ?>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="column">
-                        <h3 class="title is-3 has-text-centered">Quick Links</h3>
-                        <hr>
-                        <div class="content">
-                            <ul>
-                                <li><a href="/phpinfo.php">phpinfo()</a></li>
-                                <li><a href="http://localhost:<? print $_ENV['PMA_PORT']; ?>">phpMyAdmin</a></li>
-                                <li><a href="/test_db.php">Test DB Connection with mysqli</a></li>
-                                <li><a href="/test_db_pdo.php">Test DB Connection with PDO</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+            <div class="flexColumn">
+                <h2>Column 2</h2>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, ad. Minima impedit praesentium hic facere nihil ducimus maxime eaque quos alias sequi. Repudiandae quos saepe quidem laborum! Similique, dolor ea praesentium natus hic voluptate illum quaerat officia exercitationem alias, animi, cumque quas possimus eum rem quos! Recusandae vel temporibus deleniti.</p>
             </div>
-        </section>
-        <footer class="footer">
-            <div class="content has-text-centered">
-                <p>
-                    <strong><a href="https://www.sprintcube.com" target="_blank">SprintCube</a></strong><br>
-                    The source code is released under the <a href="https://github.com/sprintcube/docker-compose-lamp/blob/master/LICENSE" target="_blank">MIT license</a>.
-                </p>
+            <div class="flexColumn">
+                <h2>Column 3</h2>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, ad. Minima impedit praesentium hic facere nihil ducimus maxime eaque quos alias sequi. Repudiandae quos saepe quidem laborum! Similique, dolor ea praesentium natus hic voluptate illum quaerat officia exercitationem alias, animi, cumque quas possimus eum rem quos! Recusandae vel temporibus deleniti.</p>
             </div>
-        </footer>
-    </body>
+        </div>
+    </section>
+</body>
 </html>
