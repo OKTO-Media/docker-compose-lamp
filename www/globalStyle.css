@@ -177,6 +177,18 @@ section {
                         OKTO HEADER STYLES
 ////////////////////////////////////////////////////////////////////////////////////////////*/
 
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white
+}
+
+.header-spacer {
+    height: 118.5px;
+}
+
 header .logo {
     width: 100%;
     max-width: 200px;
@@ -223,16 +235,17 @@ header .flexContainer {
     stroke:#000;
     stroke-width:5.5;
     stroke-linecap:round;
+    overflow: visible;
   }
 
   .ham6 .top {
-    stroke-dasharray: 40 172;
+    stroke-dasharray: 41 172;
   }
   .ham6 .middle {
-    stroke-dasharray: 40 111;
+    stroke-dasharray: 41 111;
   }
   .ham6 .bottom {
-    stroke-dasharray: 40 172;
+    stroke-dasharray: 41 172;
   }
   .ham6.active .top {
     stroke-dashoffset: -132px;
@@ -269,11 +282,12 @@ header .flexContainer {
 
     .mobileNavLinks {
         position: absolute;
-        width: 90%;
-        height: 85vh;
-        bottom: 0;
+        width: 100%;
+        top: 100px;
+        left: 0;
         display: flex;
         flex-direction: column;
-        background-color: white;
+        background-color: grey;
+        padding: 2rem 0;
     }
   }
