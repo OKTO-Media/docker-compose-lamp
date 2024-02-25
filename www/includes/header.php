@@ -1,7 +1,7 @@
 <header>
     <div class="flexContainer">
         <div class="logo">
-            <img src="/www/assets/OKTO Logo Black.svg" alt="">
+            <img src="/assets/OKTO Logo Black.svg" alt="">
         </div>
         <div class="navLinks">
             <a href="#">HOME</a>
