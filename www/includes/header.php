@@ -21,6 +21,8 @@
     </div>
 </header>
 
+<div class="header-spacer"></div>
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Select the hamburger icon
