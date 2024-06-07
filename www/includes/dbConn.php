@@ -9,5 +9,3 @@ if (!$conn) {
 }
 
 // echo "Success: A proper connection to MySQL was made! The docker database is great." . PHP_EOL;
-
-mysqli_close($conn);
